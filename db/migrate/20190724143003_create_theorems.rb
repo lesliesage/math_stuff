@@ -3,7 +3,7 @@ class CreateTheorems < ActiveRecord::Migration[5.2]
     create_table :theorems do |t|
       t.string :name
       t.string :application
-      t.integer :mathematician_id
+      t.integer :mathlete_id
 
       t.timestamps
     end

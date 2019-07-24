@@ -1,0 +1,36 @@
+
+<h1><%= @mathlete.name %></h1>
+<p>of <%= @mathlete.country %></p>
+
+<h3><%= @mathlete.name %>'s Theorems</h3>
+<ul>
+    <% @mathlete.theorems.each do |theorem| %>
+        <li><%= link_to theorem.name, theorem_path(theorem) %> </li>
+    <% end %>
+</ul>
+
+<h3>Liked Theorems</h3>
+<ul>
+    <% @mathlete.likes.each do |like| %>
+        <li><%= link_to like.theorem.name, theorem_path(like.theorem) %> </li>
+    <% end %>
+</ul>
+
+<h3><%= @mathlete.name %>'s Followers</h3>
+<ul>
+    <% @acolyte_follows.each do |follow| %>
+        <li><%= link_to Mathlete.find(follow.acolyte_id).name, Mathlete.find(follow.acolyte_id) %> </li>
+    <% end %>
+</ul>
+
+<h3>Mathmeticians Followed</h3>
+<ul>
+    <% @mathlete.follows.each do |follow| %>
+        <li><%= link_to Mathlete.find(follow.mathlete_id).name, Mathlete.find(follow.mathlete_id) %> </li>
+    <% end %>
+</ul>
+
+<%= form_for @mathlete do |f| %>
+    <%= f.label "Theorems You Can Like" %>:<br>
+    <%= f.collection_check_boxes :theorem_ids, @unliked_theorems, :id, :name %>
+<% end %>

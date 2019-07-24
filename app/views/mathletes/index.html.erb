@@ -1,0 +1,8 @@
+<h1>Mathlete Index</h1>
+
+<% @mathletes.each do |mathlete| %>
+    <%= link_to mathlete.name, mathlete_path(mathlete) %> - <%= mathlete.country %><br>
+<% end %>
+
+<h3>Create a New Mathlete</h3>
+<%= render "mathlete_form", post: Mathlete.new %>

@@ -13,10 +13,13 @@
 ActiveRecord::Schema.define(version: 2019_07_24_143603) do
 
   create_table "follows", force: :cascade do |t|
-    t.integer "mathematician_id"
+    t.integer "mathlete_id"
     t.integer "acolyte_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["acolyte_id"], name: "index_follows_on_acolyte_id"
+    t.index ["mathlete_id", "acolyte_id"], name: "index_follows_on_mathlete_id_and_acolyte_id", unique: true
+    t.index ["mathlete_id"], name: "index_follows_on_mathlete_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_143603) do
   create_table "theorems", force: :cascade do |t|
     t.string "name"
     t.string "application"
-    t.integer "mathematician_id"
+    t.integer "mathlete_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
