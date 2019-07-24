@@ -1,0 +1,2 @@
+class MathletesController < ApplicationController
+end

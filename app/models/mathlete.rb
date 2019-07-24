@@ -1,0 +1,2 @@
+class Mathlete < ApplicationRecord
+end

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mathematician_id: 1
+  theorem_id: 1
+
+two:
+  mathematician_id: 1
+  theorem_id: 1
